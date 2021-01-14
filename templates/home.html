@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block query %} Welcome to <img src="{{ url_for('static', filename='img/icon.png') }}" width=150> </img>English {% endblock %} {% block query_response %}
+
+<br>Please input the sentence,&nbsp; thx <br><br> For example:
+<table class=. home_table>
+    <tr>
+        <th valign="top">[1]
+        </th>
+        <th>
+            The definition of pneumonoultramicroscopicsilicovolcanoconiosis is a lung disease caused by inhaling very fine silica dust.
+        </th>
+    </tr>
+    <tr>
+        <th valign="top">[2]
+        </th>
+        <th>
+            There were several simultaneous explosions in different cities.
+        </th>
+    </tr>
+    <tr>
+        <th valign="top">[3]
+        </th>
+        <th>
+            Antidisestablishmentarianism is a position that advocates that a state Church should continue to receive government patronage, rather than be disestablished.
+        </th>
+    </tr>
+</table>
+
+{% endblock %}

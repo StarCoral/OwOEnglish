@@ -1,0 +1,69 @@
+{% extends "query_base.html" %} {% block query %} {{sentence}} {% endblock %} {% block query_response %} {% for qr in query_response %}
+<div class="bg-light p-4 rounded">
+    <p class="lead">
+        <h2 class=token> {{qr}}</h2>
+        <table>
+            <tr>
+                <th>
+                    Part of speech
+                </th>
+                <th>
+                    ：
+                </th>
+                <td>
+                    {{query_response[qr]['pos']}}
+                </td>
+            </tr>
+            <tr>
+                <th valign="top">
+                    Definition
+                </th>
+                <th valign="top">
+                    ：
+                </th>
+                <td>
+                    {% if "The vocabulary you used is too trendy and has not yet been defined" in query_response[qr]['definition'] %}
+                    <font color="red">{{query_response[qr]['definition']}}</font>
+                    {% else %} {{query_response[qr]['definition']}} {% endif %}
+
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Origin
+                </th>
+                <th>
+                    ：
+                </th>
+                <td>
+                    {{query_response[qr]['origin']}}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Segmentation
+                </th>
+                <th>
+                    ：
+                </th>
+                <td>
+                    {% for seg in query_response[qr]['segment'] %} {% if seg %} [&nbsp;{{seg}}&nbsp;]&nbsp;{% endif %} {% endfor%}
+                </td>
+            </tr>
+            <tr>
+                <th valign="top">
+                    Example
+                </th>
+                <th valign="top">
+                    ：
+                </th>
+                <td>
+                    {% if "Please use your imagination to think about your own example sentences" in query_response[qr]['example'] %}
+                    <font color="red">{{query_response[qr]['example']}}</font>
+                    {% else %} {{query_response[qr]['example']}} {% endif %}
+                </td>
+            </tr>
+        </table>
+    </p>
+</div>
+<br> {% endfor %} {% endblock %}
